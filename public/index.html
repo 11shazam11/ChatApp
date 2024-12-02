@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="./home.css">
+</head>
+<body>
+    <div class="container">
+        <div class="tophead">
+            <h1>Easy Chat</h1>
+            <p>Enter Name Enter Id</p>
+            <p>Simple</p>
+        </div>
+        <div class="box img">
+            
+            <img src="./people-collaborating-online.png" alt="chat">
+
+
+        </div>
+        <div class="box login">
+            <h1>WELCOME</h1>
+            <form  id="logform" action="#">
+                <input placeholder="Enter Name" type="text" id="name" required >
+                <input type="number" placeholder="Enter Room Id" id="roomId" required>
+                <button type="submit">Enter</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        //Serlect elemtts
+            let logform = document.getElementById("logform");
+
+
+            //on entering name
+            let userName;
+            let roomId;
+            logform.addEventListener("submit", (event) => {
+                event.preventDefault();
+
+                //get name
+                userName = document.getElementById("name").value;
+                //get room id
+                roomId = document.getElementById("roomId").value;
+                console.log(userName, roomId);
+                //emit name
+                //go to chat app 
+                 window.location.href = `./chat.html?username=${encodeURIComponent(userName)}&roomId=${roomId}`;
+            });
+    </script>
+    
+</body>
+</html>
